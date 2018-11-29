@@ -38,7 +38,6 @@
 </div>
 <script>
     $(function(){
-
         $('.all_menu .all_menu_li','.menu').mouseenter(function(){
             $(this).addClass('current').siblings().removeClass('current');
         });
@@ -47,55 +46,30 @@
         });
         $('.all_sort_menu .all_sort_menu_h:last').addClass('qline');
     });
-
 </script>
 <div class="menu">
     <div class="box">
         <ul class="all_menu">
-
             <li class="all_menu_li"><span><a href="/">首 页</a></span></li>
-            <li class="all_menu_li">
-                <span><a href="/brand/">品牌大全</a></span>
-                <ul class="menu_xs">
-                    <li><a href="/lingshi/">零食品牌加盟</a></li> <li><a href="/ganguo/">干果加盟</a></li>
-                </ul>
-            </li><li class="all_menu_li">
-                <span><a href="/jmzn/">零食加盟指南</a></span>
-                <ul class="menu_xs">
-                    <li><a href="/hangyezx/">零食行业资讯</a></li> <li><a href="/kaidianwd/">零食开店问答</a></li>
-                </ul>
-            </li><li class="all_menu_li">
-                <span><a href="/lingshidianjm/">零食店加盟</a></span>
-                <ul class="menu_xs">
-                    <li><a href="/lirun/">零食店利润</a></li> <li><a href="/feiyong/">零食加盟费多少</a></li>
-                </ul>
-            </li><li class="all_menu_li">
-                <span><a href="/ppxw/">零食品牌新闻</a></span>
-                <ul class="menu_xs">
-
-                </ul>
-            </li><li class="all_menu_li">
-                <span><a href="/ppal/">零食品牌案例</a></span>
-                <ul class="menu_xs">
-
-                </ul>
-            </li>
-            <li class="all_menu_li">
-                <span><a href="/fenlei/">零食品牌大全</a></span>
-            </li>
+            <li class="all_menu_li"><span><a href="/pinpai/">品牌大全</a></span></li>
+            <li class="all_menu_li"><span><a href="/zhinan/">饮品店加盟指南</a></span></li>
+            <li class="all_menu_li"><span><a href="/yinpinjm/">饮品店加盟</a></span></li>
+            <li class="all_menu_li"><span><a href="/news/">饮品品牌新闻</a></span></li>
+            <li class="all_menu_li"><span><a href="/jmanli/">饮品牌案例</a></span></li>
+            <li class="all_menu_li"><span><a href="/paihangbang/">饮品品牌排行榜</a></span></li>
         </ul>
     </div>
 </div>
 @yield('main_content')
 <div class="footer_nav">
-    <a href="http://swt.ysg.cn/LR/Chatpre.aspx?id=KMM23720509">在线留言</a>  |  <a href="/tags.html">TAG标签</a>  |  <a href="#">联系我们</a>  |  <a href="/cpzh/">零食产品展示</a>  <a href="http://www.ganxi360.net/">干洗店加盟</a>|  <a href="/sitemap.xml">网站地图</a>
+    <a href="#">在线留言</a>  |  <a href="/feiyong/">饮品店加盟费用</a>  |  <a href="#">联系我们</a>  |  <a href="/storage/sitemap.xml">网站地图</a>  |  <a href="/paihangbang/">饮品品牌排行榜</a>  |  <a href="/news/">饮品品牌新闻</a>
 </div>
 <div class="footer">
     <div class="box clearfix">
         <div class="footer_logo"><img src="/frontend/images/f_logo.gif" /></div>
         <div class="footer_c">
             <p>copyright © 2012-2019 零食加盟品牌网 Inc. All rights reserved.</p>
-            <p>  <a  href="http://www.miibeian.gov.cn/" rel="nofollow"  />沪ICP备15007550号-9</a>  版权所有 上海卡哇伊实业有限公司</p>
+            <p>  <a  href="http://www.miibeian.gov.cn/" rel="nofollow"  />沪ICP备15007550号-9</a>  版权所有 上海快盈网络科技有限公司</p>
             <p>加盟服务热线：4008-896-216</p>
         </div>
         <div class="footer_r">

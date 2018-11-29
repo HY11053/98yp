@@ -42,7 +42,6 @@ class ArticleController extends Controller
             }
         }else{
             $hotnewslists=Archive::where('typeid',Arctype::where('id',Archive::where('id',$id)->value('typeid'))->value('id'))->where('flags','like','%c%')->take(10)->latest()->get();
-            $cnew=Archive::where('typeid',Arctype::where('id',Archive::where('id',$id)->value('typeid'))->value('id'))->where('flags','like','%c%')->latest()->first();
             $topbrands=Brandarticle::where('mid','1')->take(10)->orderBy('click','desc')->get();
             $xg_search=Archive::where('typeid',$thisarticleinfos->typeid)->take(10)->latest()->get();
             $abrandlists=Brandarticle::where('mid','1')->where('flags','like','%'.'a'.'%')->take(4)->orderBy('id','desc')->get();

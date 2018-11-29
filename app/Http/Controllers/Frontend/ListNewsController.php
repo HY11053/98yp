@@ -35,50 +35,26 @@ class ListNewsController extends Controller
                 $cid,//传入分类id,
                 $pagelists//传入原始分页器
             );
-            $hotnew=Archive::where('typeid',$thistypeinfo->id)->where('flags','like','%h%')->latest()->first();
-            $cnewtop=Archive::where('typeid',$typeid)->where('flags','like','%'.'c'.'%')->latest()->first();
-            $cnewtops=Archive::where('typeid',$typeid)->where('flags','like','%'.'c'.'%')->take(10)->latest()->get();
-            $topbrands=Brandarticle::where('mid','1')->take(10)->orderBy('click','desc')->get();
-            $abrandlists=Brandarticle::where('mid','1')->where('flags','like','%'.'a'.'%')->take(4)->orderBy('id','desc')->get();
+            $sontypes=Arctype::where('reid',$thistypeinfo->id)->get();
+            $cnewtops=Archive::where('typeid',$typeid)->where('flags','like','%'.'c'.'%')->take(4)->latest()->get();
+            $hnewtops=Archive::where('typeid',$typeid)->where('flags','like','%'.'h'.'%')->take(6)->latest()->get();
+            $topbrands=Brandarticle::where('mid','1')->take(5)->orderBy('click','desc')->get();
             $latestbrands=Brandarticle::where('mid','1')->take(5)->latest()->get();
-            $cnew=Archive::where('typeid','<>',$thistypeinfo->id)->where('flags','like','%c%')->latest()->first();
             $latesenews=Archive::where('typeid','<>',$thistypeinfo->id)->take(7)->latest()->get();
-            return view('frontend.index_lists',compact('thistypeinfo','pagelists','hotnew','cnewtop','cnew','cnewtops','topbrands','latestbrands','latesenews','abrandlists'));
+            $brandnews=Archive::where('typeid',9)->take(10)->orderBy('id','desc')->get();
+            return view('frontend.index_lists',compact('thistypeinfo','pagelists','cnewtop','cnewtops','topbrands','latestbrands','latesenews','sontypes','hnewtops'));
         }elseif (Arctype::where('id',$typeid)->value('mid')==1)
         {
-            if ($path=='blist/all')
-            {
-                $typeids=Arctype::where('topid',$typeid)->pluck('id');
-                $cnewslists=Archive::where('flags','like','%c%')->take(7)->latest()->get();
-            }else{
-                $cnewslists=Archive::whereIn('brandid',Brandarticle::where('typeid',$typeid)->take(10)->latest()->pluck('id'))->take(10)->latest()->get();
-            }
             $cid=preg_replace('/\/page\/[0-9]+/','',$path);
             $pagelists=Brandarticle::whereIn('typeid',$typeids)->orwhere('typeid',$typeid)->orderBy('id','desc')->distinct()->paginate($perPage = 10, $columns = ['*'], $pageName = 'page', $page);
             $pagelists= Paginator::transfer(
                 $cid,//传入分类id,
                 $pagelists//传入原始分页器
             );
-            $topbrandnavs=Arctype::where('mid',1)->where('reid','<>',0)->orderBy('sortrank','asc')->get();
-            $topbrands=Brandarticle::whereIn('typeid',$typeids)->orwhere('typeid',$typeid)->take(10)->orderBy('click','desc')->get();
-            $flashlingshibrands=Brandarticle::where('mid','1')->where('flags','like','%'.'h'.'%')->take(7)->orderBy('id','desc')->get();
-            $cbrands=Brandarticle::where('mid','1')->where('brandpsp','<>','')->where('flags','like','%c%')->take(4)->orderBy('click','desc')->get();
-            $hotbrandsearch=Brandarticle::where('mid','1')->latest()->take(5)->orderBy('click','desc')->get();
-            return view('frontend.brands',compact('thistypeinfo','topbrandnavs','pagelists','topbrands','flashlingshibrands','cnewslists','cbrands','hotbrandsearch'));
-        }else{
-            $cid=preg_replace('/\/page\/[0-9]+/','',$path);
-            $pagelists=Production::whereIn('typeid',$typeids)->orwhere('typeid',$typeid)->latest()->paginate($perPage = 28, $columns = ['*'], $pageName = 'page', $page);
-            $pagelists= Paginator::transfer(
-                $cid,//传入分类id,
-                $pagelists//传入原始分页器
-            );
-            $topbrandnavs=Arctype::where('mid',2)->get();
-            $flashlingshibrands=Brandarticle::where('mid','1')->where('flags','like','%'.'c'.'%')->take(9)->orderBy('id','desc')->get();
-            $topbrands=Brandarticle::take(10)->orderBy('click','desc')->get();
-            $cnewslists=Archive::where('flags','like','%c%')->take(10)->latest()->get();
-            $latestbrands=Brandarticle::where('mid','1')->take(20)->latest()->get();
-            return view('frontend.productions',compact('thistypeinfo','topbrandnavs','pagelists','flashlingshibrands','topbrands','cnewslists','latestbrands'));
-
+            $topbrands=Brandarticle::whereIn('typeid',$typeids)->orwhere('typeid',$typeid)->take(6)->orderBy('click','desc')->get();
+            $lastestbrands=Brandarticle::whereIn('typeid',$typeids)->orwhere('typeid',$typeid)->take(6)->orderBy('click','desc')->get();
+            $latesenews=Archive::where('typeid','<>',$thistypeinfo->id)->take(7)->latest()->get();
+            return view('frontend.brands',compact('thistypeinfo','topbrandnavs','pagelists','topbrands','cnewslists','latesenews','lastestbrands'));
         }
 
     }
