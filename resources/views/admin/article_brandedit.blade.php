@@ -105,12 +105,6 @@
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
-                                {{Form::label('brandpsp', '品牌特色', array('class' => 'control-label col-md-2 col-sm-3 col-xs-12'))}}
-                                <div class="col-md-4 col-sm-9 col-xs-12">
-                                    {{Form::text('brandpsp',null, array('class' => 'form-control col-md-10','id'=>'brandpsp','rows'=>3,'placeholder'=>'品牌特色' ,'required'=>'required'))}}
-                                </div>
-                            </div>
-                            <div class="form-group col-md-12">
                                 {{Form::label('description', '文档描述', array('class' => 'control-label col-md-2 col-sm-3 col-xs-12'))}}
                                 <div class="col-md-4 col-sm-9 col-xs-12">
                                     {{Form::textarea('description',null, array('class' => 'form-control col-md-10','id'=>'desrciption','rows'=>3,'placeholder'=>'不填写将自动提取首段'))}}

@@ -1,7 +1,7 @@
 @extends('frontend.frontend')
-@section('title'){{str_replace('加盟','',$thistypeinfo->typename)}}加盟排行榜_{{str_replace('加盟','',$thistypeinfo->typename)}}品牌排行榜-中国教育招商网@stop
-@section('keywords'){{str_replace('加盟','',$thistypeinfo->typename)}}加盟排行榜,{{str_replace('加盟','',$thistypeinfo->typename)}}品牌排行榜,{{str_replace('加盟','',$thistypeinfo->typename)}}品牌排行@stop
-@section('description')中国教育招商网为您全方位解读{{str_replace('加盟','',$thistypeinfo->typename)}}加盟品牌排行信息。分享{{str_replace('加盟','',$thistypeinfo->typename)}}门店信息，{{str_replace('加盟','',$thistypeinfo->typename)}}排行榜分类提供性价比最高{{str_replace('加盟','',$thistypeinfo->typename)}}品牌加盟排行榜信息，供你快速的选择适合自己的{{str_replace('加盟','',$thistypeinfo->typename)}}加盟品牌@stop
+@section('title'){{$thistypeinfo->title}}-中国教育招商网@stop
+@section('keywords'){{$thistypeinfo->keywords}} @stop
+@section('description'){{trim($thistypeinfo->description)}}@stop
 @section('headlibs')
     <meta name="Copyright" content="中国教育招商网-{{env('APP_URL')}}"/>
     <meta name="author" content="中国教育招商网" />
@@ -10,92 +10,86 @@
     <meta http-equiv="mobile-agent" content="format=html5; url={{str_replace('http://www.','http://m.',config('app.url'))}}{{Request::getrequesturi()}}" />
     <link rel="alternate" media="only screen and(max-width: 640px)" href="{{str_replace('http://www.','http://m.',config('app.url'))}}{{Request::getrequesturi()}}" >
     <link rel="canonical" href="{{config('app.url')}}{{str_replace('','',Request::getrequesturi())}}"/>
-    <link rel="stylesheet" href="/frontend/css/article.css" />
     <link rel="stylesheet" href="/frontend/css/index.css" />
+    <link href="/frontend/css/list.css" rel="stylesheet" type="text/css" />
 @stop
 @section('main_content')
-    <div id="ny_main">
-        <div class="fenlei_jianjie">
-            <div class="fenlei_jianjie_ph"></div>
-            <div class="fenlei_jianjie_c">	中国教育招商网综合排行榜是中国教育招商网推出的互联网教育品牌加盟品牌排行榜。所有入驻中国教育招商网的优质品牌都将获得一定的排名。本次排名根据中国教育招商网用户的偏好等综合因素进行排名，加盟排行榜不作为官方和权威的行业排名，仅供投资者进行参考。中国教育招商网定期对所有教育品牌品牌进行排名，包括早教品牌排名榜、幼儿园品牌排行榜、舞蹈培训加盟品牌排行榜、国学馆排行榜等……中国教育招商网温馨提示:所有创业加盟项目及相关信息均来自互联网及用户自主添加，筛选品牌前务必进行实地考察和咨询。
-            </div>
-        </div>
-        <div class="paihang_center">
-            <div class="path"><p>当前位置：<a href="/">首页</a>&gt;<a class="dq" href="/paihangbang/" title="品牌排行榜">品牌排行榜</a></p></div>
-            <div class="paihang_left">
-                <div class="ph_l">
-                    <p class="tit">中国教育招商网排行榜</p>
-                    <ul>
-                        @foreach($brandnavs as $brandnav)
-                            <li><a target="_self" href="/paihangbang/{{$brandnav->real_path}}/">{{$brandnav->typename}}品牌排行榜</a></li>
-                        @endforeach
-                    </ul>
+    <div class="weizhi"><span><a href='http://www.lingshijmls.com/'>主页</a> > <a href='/{{$thistypeinfo->real_path}}/'>{{$thistypeinfo->typename}}</a> > </span></div>
+    <div class="box clearfix" style="position:relative;">
+        <div class="w680"  style="margin-top:0;">
+            <div class="nav">
+                <div class="nav1">
+                    <div class="tit">{{$thistypeinfo->typename}}</div>
                 </div>
             </div>
-            <div class="paihang_right">
-                <div class="sheyLbox">
-                    @foreach($paihangbrands as $index=>$paihangbrand)
-                        <div class="sheyLlist clearfix">
-
-                            <div class="hdzjbox">
-                                <div class="pro-Img fl">
-                                    <a target="_blank" href="/xm/{{$paihangbrand->id}}.shtml" class="pp-pic-name" title="{{$paihangbrand->brandname}}"><img src="{{$paihangbrand->litpic}}" alt="{{$paihangbrand->brandname}}"></a>
-                                </div>
+            <div class="pp_list">
+                <ul class="clearfix">
+                    @foreach($pagelists as $pagelist)
+                        <li>
+                        <span>
+                            <a href="/{{$pagelist->arctype->real_path}}/{{$pagelist->id}}.html">
+                                <img src="{{$pagelist->litpic}}" alt="{{$pagelist->brandname}}"  width="120" height="90"/>
+                            </a>
+                        </span>
+                            <strong>
+                                <a href="/{{$pagelist->arctype->real_path}}/{{$pagelist->id}}.html">{{$pagelist->brandname}}</a>
+                            </strong>
+                            <em>加盟人气：{{$pagelist->brandnum}}<b></b>
+                            </em>
+                            <div>
+                                <a href="/{{$pagelist->arctype->real_path}}/{{$pagelist->id}}.html" class="pp_b1">查看详情</a>
+                                <a class="pp_b2" href="#liuyan" >立即咨询</a>
                             </div>
-                            <div class="sheyincont">
-                                <div class="clearfix">
-                                    <div class="incontTop">
-                                        <div class="clearfix">
-                                            <h3 class="inshoptit"><em class="paihang">第{{$index+1}}名</em>
-                                                <a href="/xm/{{$paihangbrand->id}}.shtml" title="{{$paihangbrand->brandname}}"  target="_blank">{{$paihangbrand->brandname}}</a>
-                                            </h3>
-                                            <ul class="inrzbox clearfix">
-                                                <li><a class="hdicon rz_show"><em></em><i></i></a></li>
-                                                <li><a class="ddlicon rz_show"><em></em><i></i></a></li>
-                                                <li><a class="hoticon rz_show"><em></em><i></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="xiaobaonewbox">
-                                        </div>
-                                        <p class="inaddtxt">公司名称：{{$paihangbrand->brandgroup}} </p>
-                                        <p class="inaddtxt inyuyuepeo">公司地址： {{$paihangbrand->brandaddr}}</p>
-                                        <p class="ismoney">投资金额：￥{{$paihangbrand->brandpay}}
-                                        </p>
-                                        <p class="inpostcont"><span>适合人群<em></em></span>{{$paihangbrand->brandperson}}</p> </div>
-                                    <div class="iniconbox">
-                                        <ul>
-                                            <li class="xishu">门店总数{{$paihangbrand->brandnum}} </li>
-                                            <li class="renqi" style="color: red">指数 {{$paihangbrand->click}}</li>
-                                            <li class="pinglun">品牌好评{{rand(95,99)}}%</li>
-                                            <li class="zuopin">所需面积 {{\App\AdminModel\Acreagement::where('id',$paihangbrand->acreage)->value('type')}}㎡</li>
-                                            <li class="taoxi">品牌发源地 {{$paihangbrand->brandorigin}}</li>
-                                        </ul>
-                                    </div>
-                                    <div class="iniconbox">
-                                        <ul>
-                                            <li class="xishu">申请加盟 {{$paihangbrand->brandapply}} </li>
-                                            <li class="renqi">成立时间 {{$paihangbrand->brandtime}} </li>
-                                            <li class="pinglun">注册资金 {{$paihangbrand->registeredcapital}}</li>
-                                            <li class="zuopin">加盟区域 {{$paihangbrand->brandarea}}</li>
-                                            <li class="taoxi">经营范围 {{$paihangbrand->brandmap}}</li>
-                                        </ul>
-                                    </div>
-                                </div>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+            <div class="page">
+                {!! str_replace('page=','page/',str_replace('?','/',preg_replace('/<a href=[\'\"]?([^\'\" ]+).*?>/','<a href="${1}/">',$pagelists->links()))) !!}
+            </div>
+            <script>
 
-                                <div class="newyouhui">
-                                    <ul class="newyouhuiinner coupon_more ">
-                                        <li><span>【品牌特色】<em></em></span>{{str_limit($paihangbrand->brandpsp,90,'...')}}</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
+                $(function () {
+                    $(".pp_list ul li").hover(function () {
+                        $(this).addClass("jg")
+                    }, function () {
+                        $(this).removeClass("jg")
+                    })
+                });
+
+            </script>
+        </div>
+        <div class="w306">
+            <div class="bkb" style="margin-top:0;">
+                <!-- 幻灯片 Start -->
+                <a href="#" target="_blank"><img src="/frontend/images/loading.gif" alt="一扫光"  width="302" height="292"/></a>
+            </div>
+            <div class="bkb ullb2">
+                <div class="title">品牌关注排行榜</div>
+                <ul class="clearfix">
+                    @foreach($topbrands as $topbrand)
+                        <li><span><a href="/{{$topbrand->arctype->real_path}}/{{$topbrand->id}}.html"><img src="{{$topbrand->litpic}}" width="126" height="96"/></a></span> <strong><a href="/{{$topbrand->arctype->real_path}}/{{$topbrand->id}}.html">{{$topbrand->brandname}}</a></strong></li>
+                    @endforeach
+                </ul>
+            </div>
+            <div class="bkb ullb1">
+                <div class="title">饮品加盟资讯</div>
+                <ul>
+                    @foreach($latesenews as $latesenew)
+                        <li><a href="/{{$latesenew->real_path}}/{{$latesenew->id}}.html">{{$latesenew->title}}</a></li>
                     @endforeach
 
-                </div>
+                </ul>
             </div>
-            <div class="clear"></div>
+            <div class="r_xd"></div>
+            <div class="bkb ullb3 rfd">
+                <div class="title">品牌推荐</div>
+                <ul class="clearfix">
+                    @foreach($lastestbrands as $lastestbrand)
+                        <li><span><a href="/{{$lastestbrand->real_path}}/{{$lastestbrand->id}}.html"><img src="{{$lastestbrand->litpic}}" /></a></span> <strong><a href="/{{$lastestbrand->arctype->real_path}}/{{$lastestbrand->id}}.html">{{$lastestbrand->brandname}}</a></strong></li>
+                    @endforeach
+                </ul>
+            </div>
         </div>
-
     </div>
 @stop

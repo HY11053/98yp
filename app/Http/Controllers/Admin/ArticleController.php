@@ -88,25 +88,8 @@ class ArticleController extends Controller
         $this->RequestProcess($request);
         if ( Archive::create($request->all())->wasRecentlyCreated)
         {
-            //百度相关数据提交
-            $thisarticle=Archive::withoutGlobalScope(PublishedScope::class)->where('id',Archive::withoutGlobalScope(PublishedScope::class)->max('id'))->find(Archive::withoutGlobalScope(PublishedScope::class)->max('id'));
-            if ($thisarticle->published_at>Carbon::now() || $thisarticle->ismake !=1)
-            {
-                auth('admin')->user()->notify(new ArticlePublishedNofication(Archive::latest() ->first()));
-                return redirect(action('Admin\ArticleController@Index'));
-            }else{
-                $thisarticleurl=config('app.url').'/news/'.$thisarticle->id.'.shtml';
-                $miparticleurl=str_replace('www.','mip.',config('app.url')).'/news/'.$thisarticle->id.'.shtml';
-                $this->BaiduCurl(config('app.api'),$thisarticleurl,'百度主动提交');
-                if ($request->xiongzhang)
-                {
-                    $this->BaiduCurl(config('app.mip_api'),$miparticleurl,'熊掌号实时推送');
-                }else{
-                    $this->BaiduCurl(config('app.mip_history'),$miparticleurl,'熊掌号历史提交');
-                }
-                auth('admin')->user()->notify(new ArticlePublishedNofication(Archive::latest() ->first()));
-                return redirect(action('Admin\ArticleController@Index'));
-            }
+            auth('admin')->user()->notify(new ArticlePublishedNofication(Archive::latest() ->first()));
+            return redirect(action('Admin\ArticleController@Index'));
         }
     }
 
@@ -125,22 +108,7 @@ class ArticleController extends Controller
         $this->RequestProcess($request);
         if (Brandarticle::create($request->all())->wasRecentlyCreated)
         {
-            $thisarticle=Brandarticle::withoutGlobalScope(PublishedScope::class)->where('id',Brandarticle::withoutGlobalScope(PublishedScope::class)->max('id'))->find(Brandarticle::withoutGlobalScope(PublishedScope::class)->max('id'));
-            if ($thisarticle->published_at>Carbon::now() || $thisarticle->ismake !=1)
-            {
-                return redirect(action('Admin\ArticleController@Brands'));
-            }else{
-                $thisarticleurl=config('app.url').'/xm/'.$thisarticle->id.'.shtml';
-                $this->BaiduCurl(config('app.api'),$thisarticleurl,'百度主动提交');
-                $miparticleurl=str_replace('www.','mip.',config('app.url')).'/xm/'.$thisarticle->id.'.shtml';
-                if ($request->xiongzhang==1)
-                {
-                    $this->BaiduCurl(config('app.mip_api'),$miparticleurl,'熊掌号实时推送');
-                }elseif($request->xiongzhang==2){
-                    $this->BaiduCurl(config('app.mip_history'),$miparticleurl,'熊掌号历史提交');
-                }
-                return redirect(action('Admin\ArticleController@Brands'));
-            }
+            return redirect(action('Admin\ArticleController@Brands'));
         }
     }
 
@@ -178,26 +146,8 @@ class ArticleController extends Controller
         $thisarticleinfos=Archive::withoutGlobalScope(PublishedScope::class)->findOrFail($id);
         $request['write']=$thisarticleinfos->write;
         $request['dutyadmin']=$thisarticleinfos->dutyadmin;
-        if ($thisarticleinfos->ismake || $thisarticleinfos->published_at>Carbon::now() || $request->ismake !=1)
-        {
-            Archive::withoutGlobalScope(PublishedScope::class)->findOrFail($id)->update($request->all());
-            return redirect(action('Admin\ArticleController@Index'));
-        }else{
-            $request['created_at']=Carbon::now();
-            $request['updated_at']=Carbon::now();
-            $request['published_at']=Carbon::now();
-            Archive::withoutGlobalScope(PublishedScope::class)->findOrFail($id)->update($request->all());
-            $thisarticleurl=config('app.url').'/news/'.$thisarticleinfos->id.'.shtml';
-            $miparticleurl=str_replace('www.','mip.',config('app.url')).'/news/'.$thisarticleinfos->id.'.shtml';
-            $this->BaiduCurl(config('app.api'),$thisarticleurl,'审核后百度主动提交');
-            if ($request->xiongzhang)
-            {
-                $this->BaiduCurl(config('app.mip_api'),$miparticleurl,'审核后熊掌号实时推送');
-            }else{
-                $this->BaiduCurl(config('app.mip_history'),$miparticleurl,'审核后熊掌号历史提交');
-            }
-            return redirect(action('Admin\ArticleController@Index'));
-        }
+        Archive::withoutGlobalScope(PublishedScope::class)->findOrFail($id)->update($request->all());
+        return redirect(action('Admin\ArticleController@Index'));
     }
 
     public function PostBrandArticleEditor(CreateBrandArticleRequest $request,$id)
@@ -206,26 +156,8 @@ class ArticleController extends Controller
         $thisarticleinfos=Brandarticle::withoutGlobalScope(PublishedScope::class)->findOrFail($id);
         $request['write']=$thisarticleinfos->write;
         $request['dutyadmin']=$thisarticleinfos->dutyadmin;
-        if ($thisarticleinfos->ismake || $thisarticleinfos->published_at>Carbon::now() || $request->ismake !=1)
-        {
-            Brandarticle::withoutGlobalScope(PublishedScope::class)->findOrFail($id)->update($request->all());
-            return redirect(action('Admin\ArticleController@Brands'));
-        }else{
-            $request['created_at']=Carbon::now();
-            $request['updated_at']=Carbon::now();
-            $request['published_at']=Carbon::now();
-            Brandarticle::withoutGlobalScope(PublishedScope::class)->findOrFail($id)->update($request->all());
-            $thisarticleurl=config('app.url').'/xm/'.$thisarticleinfos->id.'.shtml';
-            $this->BaiduCurl(config('app.api'),$thisarticleurl,'百度主动提交');
-            $miparticleurl=str_replace('www.','mip.',config('app.url')).'/xm/'.$thisarticleinfos->id.'.shtml';
-            if ($request->xiongzhang)
-            {
-                $this->BaiduCurl(config('app.mip_api'),$miparticleurl,'熊掌号实时推送');
-            }else{
-                $this->BaiduCurl(config('app.mip_api_hostory'),$miparticleurl,'熊掌号历史提交');
-            }
-            return redirect(action('Admin\ArticleController@Brands'));
-        }
+        Brandarticle::withoutGlobalScope(PublishedScope::class)->findOrFail($id)->update($request->all());
+        return redirect(action('Admin\ArticleController@Brands'));
     }
 
     /**
@@ -314,59 +246,6 @@ class ArticleController extends Controller
         return view('admin.brandarticle',compact('articles'));
     }
 
-    /**品牌文档领取中心
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    function BrandarticlesReceive()
-    {
-        $articles = Brandarticle::withoutGlobalScope(PublishedScope::class)->where('ismake','<>',1)->where('dutyadmin',1)->orderBy('id','asc')->paginate(30);
-        return view('admin.brand_article_receive',compact('articles'));
-    }
-    public function Brandreceives()
-    {
-        $articles = Brandarticle::withoutGlobalScope(PublishedScope::class)->where('ismake','<>',1)->where('editor_id','<>',0)->orderBy('id','asc')->paginate(30);
-        return view('admin.brand_received',compact('articles'));
-    }
-    /**品牌文档领取异步更新
-     * @param $id
-     */
-    public function UpdateBrabdReceive($id)
-    {
-        if (!Brandarticle::withoutGlobalScope(PublishedScope::class)->where('id',$id)->value('editor_id'))
-        {
-            Brandarticle::withoutGlobalScope(PublishedScope::class)->where('ismake','<>',1)->where('dutyadmin',1)->where('editor_id',0)->where('id',$id)->update(['editor'=>auth('admin')->user()->name,'editor_id'=>auth('admin')->id(),'received_at'=>Carbon::now()]);
-            return [auth('admin')->user()->name,'已成功领取品牌'];
-        }else{
-            return [Brandarticle::withoutGlobalScope(PublishedScope::class)->where('id',$id)->value('editor'),'已经领取过该品牌，不可重复领取'];
-        }
-
-    }
-
-    /**我已领取的文档
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    function ownBrandarticleRecevied(){
-        $articles = Brandarticle::withoutGlobalScope(PublishedScope::class)->where('editor_id',auth('admin')->id())->latest()->paginate(30);
-        return view('admin.brand_received',compact('articles'));
-    }
-
-    /**已领取未修改品牌汇总
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function BrandReceivednoMod()
-    {
-        $articles = Brandarticle::withoutGlobalScope(PublishedScope::class)->where('ismake','<>',1)->where('editor_id','<>',0)->where('isedit',0)->orderBy('id','asc')->paginate(30);
-        return view('admin.brand_received',compact('articles'));
-    }
-    /**已领取未修改品牌汇总
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function BrandReceivedModedNomake()
-    {
-        $articles = Brandarticle::withoutGlobalScope(PublishedScope::class)->where('ismake','<>',1)->where('editor_id','<>',0)->where('isedit',1)->orderBy('id','asc')->paginate(30);
-        return view('admin.brand_received',compact('articles'));
-    }
-
     /**等待发布的文档
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -439,28 +318,6 @@ class ArticleController extends Controller
         return view($view,compact('articles'));
     }
 
-
-    /**百度主动推送
-     * @param $thisarticleurl
-     * @param $token
-     * @param $type
-     */
-    private function BaiduCurl($token,$thisarticleurl,$type)
-    {
-        $urls = array($thisarticleurl);
-        $ch = curl_init();
-        $options =  array(
-            CURLOPT_URL =>$token,
-            CURLOPT_POST => true,
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_POSTFIELDS => implode("\n", $urls),
-            CURLOPT_HTTPHEADER => array('Content-Type: text/plain'),
-        );
-        curl_setopt_array($ch, $options);
-        $result = curl_exec($ch);
-        Log::info($thisarticleurl.$type);
-        Log::info($result);
-    }
 
     /**重复标题检测
      * @param Request $request

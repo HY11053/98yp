@@ -136,9 +136,6 @@ return [
     'indexname'=>'中国教育招商网',
     'keywords'=>'教育培训机构加盟,教育机构加盟,培训机构加盟,教育加盟',
     'description'=>'中国教育招商网专注教育培训机构加盟项目，致力打造权威可靠的教育加盟平台，提供海量的全国教育加盟品牌，为创业者与招商品牌之间搭建信息沟通桥梁。帮助广大创业者找到合适自己的教育加盟项目信息,成功创业致富!',
-    'api'=>'http://data.zz.baidu.com/urls?site=www.jjedu.com.cn&token=QeSFIvl5RWRgU3BT',
-    'mip_api'=>'http://data.zz.baidu.com/urls?site=mip.jjedu.com.cn&token=QeSFIvl5RWRgU3BT&type=mip',
-    'mip_history'=>'http://data.zz.baidu.com/urls?site=mip.jjedu.com.cn&token=QeSFIvl5RWRgU3BT&type=mip',
     /*
 
     /*

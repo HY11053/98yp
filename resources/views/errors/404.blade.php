@@ -59,24 +59,6 @@
 </head>
 <body>
 <h1></h1>
-<h2><em><span class="STYLE1">404 Error&nbsp;&nbsp; </span></em><a href="http://www.51xxsp.com/">51加盟网</a>提醒您，您所查找的页面不存在,可能已被删除或您输错了网址!</h2>
-<p class="link">
-    <a href="/">&#9666;返回首页</a>
-    <a href="javascript:history.go(-1);">&#9666;返回上一页</a>
-</p>
-<dl class="texts">
-    <dt>您可以先浏览一下其他页面..</dt>
-    <dd>
-        <ul>
-            <li><a href="/xm/">品牌招商</a></li>
-            <li><a href="/blist/canyin_28/">餐饮加盟</a></li>
-            <li><a href="/ilist/all/">产品代理</a></li>
-            <li><a href="/nlist/1/">加盟指南</a></li>
-            <li><a href="/nlist/2/">投资分析</a></li>
-        </ul>
-    </dd>
-</dl>
-
-</span></span></span></p>
+<h2><em><span class="STYLE1">404 Error&nbsp;&nbsp; </span></em></h2>
 </body>
 </html>

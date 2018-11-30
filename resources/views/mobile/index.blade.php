@@ -2,351 +2,151 @@
 @section('title'){{ config('app.webname', '中国教育招商网') }}@stop
 @section('keywords'){{ config('app.keywords', '中国教育招商网') }}@stop
 @section('description'){{ config('app.description', '中国教育招商网') }}@stop
-@section('headlibs')
-    <link href="/mobile/css/index.css" rel="stylesheet" type="text/css"/>
-    <link href="/frontend/css/swiper.min.css" rel="stylesheet" type="text/css"/>
-@stop
 @section('main_content')
-@include('mobile.header')
-    <div class="smalllist clearfix">
-        <div class="small-box">
-            <a href="/xm/">
-                <img src="/mobile/images/zhaoshang.png"/><span>教育品牌</span>
-            </a>
-        </div>
-        <div class="small-box">
-            <a href="/zaojiao/" class="rightbox">
-                <img src="/mobile/images/zhinan.png"/><span>早教加盟</span>
-            </a>
-        </div>
-        <div class="small-box">
-            <a href="/youeryuan/">
-                <img src="/mobile/images/touzi.png"/><span>幼儿园加盟</span>
-            </a>
-        </div>
-        <div class="small-box rightbox">
-            <a href="/shaoer/" class="rightbox">
-                <img src="/mobile/images/jingying.png"/><span>少儿英语加盟</span>
-            </a>
-        </div>
-        <div class="small-box rightbox">
-            <a href="/wudao/" class="rightbox">
-                <img src="/mobile/images/xinwen.png"/><span>舞蹈培训</span>
-            </a>
-        </div>
-         <div class="small-box rightbox">
-            <a href="/xuedifudao/" class="rightbox">
-                <img src="/mobile/images/paihang.png"/><span>学习辅导</span>
-            </a>
-        </div>
-        <div class="small-box rightbox">
-            <a href="/yishujiaoyu/" class="rightbox">
-                <img src="/mobile/images/canyin.png"/><span>艺术教育</span>
-            </a>
-        </div>
-        <div class="small-box rightbox">
-            <a href="/zuowen/" class="rightbox">
-                <img src="/mobile/images/huoguo.png"/><span>作文培训</span>
-            </a>
-        </div>
+<p class="bg-primary">&nbsp;&nbsp;<em class="col-xs-10"><span class="glyphicon glyphicon-phone-alt ">&nbsp;</span><a href="tel:4008-896-216">拨打咨询电话-4008-896-216</a></em><a href="javascript:void(0);" onclick="openZoosUrl();return false;" class="col-xs-1"><span class="glyphicon glyphicon-comment "></span></a></p>
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        <div class="item active"><a href="javascript:void(0)" onclick="openZoosUrl();return false;"><img class="center-block" src="/mobile/images/1.jpg" alt="一点点奶茶"></a> </div>
+        <div class="item"><a href="javascript:void(0)" onclick="openZoosUrl();return false;"><img class="center-block" src="/mobile/images/2.jpg" alt="COCO奶茶"></a></div>
+        <div class="item"><a href="javascript:void(0)" onclick="openZoosUrl();return false;"><img class="center-block" src="/mobile/images/3.jpg" alt="网红奶茶"></a></div>
+    </div>
+</div>
+<!--幻灯end-->
+<p class="bg-primary">  <span class="glyphicon glyphicon-comment"> </span><a href="javascript:void(0);" onclick="openZoosUrl();return false;">免费领取资料</a></p>
+<div class="container">
+    <div class="row">
+        <ul class="clearfix-m col-xs-12">
 
+            <li class="col-xs-3">
+                <a href="/zhinan/"><span class="nav-img"><img class="img-responsive" src="/mobile/images/zl.png"></span><span class="nav-font">加盟指南</span></a>
+            </li>
+            <li class="col-xs-3"><a href="/fenlei/"><span class="nav-img"><img class="img-responsive" src="/mobile/images/dt.png"></span><span class="nav-font">品牌大全</span></a>
+            </li>
+            <li class="col-xs-3">
+                <a href="/pinpai/">
+                    <span class="nav-img"><img class="img-responsive" src="/mobile/images/lc.png"></span>
+                    <span class="nav-font">饮品品牌</span>
+                </a>
+            </li>
+            <li class="col-xs-3">
+                <a href="/lirun/">
+                    <span class="nav-img"><img class="img-responsive" src="/mobile/images/js.png"></span>
+                    <span class="nav-font">开店利润</span>
+                </a>
+            </li>
+            <li class="col-xs-3">
+                <a href="/wenda/">
+                    <span class="nav-img"><img class="img-responsive" src="/mobile/images/zc.png"></span>
+                    <span class="nav-font">开店问答</span>
+                </a>
+            </li>
+            <li class="col-xs-3">
+                <a href="/yinpinjm/">
+                    <span class="nav-img"><img class="img-responsive" src="/mobile/images/fa.png"></span>
+                    <span class="nav-font">饮品加盟</span>
+                </a>
+            </li>
+            <li class="col-xs-3">
+                <a href="/news/">
+                    <span class="nav-img"><img class="img-responsive" src="/mobile/images/lx.png"></span>
+                    <span class="nav-font">品牌新闻</span>
+                </a>
+            </li>
+            <li class="col-xs-3">
+                <a href="/jmanli/" >
+                    <span class="nav-img"><img class="img-responsive" src="/mobile/images/sy.png"></span>
+                    <span class="nav-font">加盟案例</span>
+                </a>
+            </li>
+        </ul>
     </div>
-    <div class="recommend clearfix">
-        <img src="/mobile/images/icon-kmtt.png">
-        <div id="moocBox">
-            <ul data-id="m_n_a02" data-type="cmsadpos">
-                @foreach($ctbrandnews as $ctbrandnew)
-                <li><a href="/news/{{$ctbrandnew->id}}.shtml" data-id="{{$ctbrandnew->id}}">{{$ctbrandnew->title}}</a></li>
+    <!--zonghe start-->
+
+    <div class="row brands">
+        <div class="pai_hangbang"><span class="glyphicon glyphicon-flag"></span>品牌排行榜</div>
+        <ul class="list-group">
+            @foreach($cbrands as $cbrand)
+            <li class="list-group-item col-xs-4"><a  href="/{{$cbrand->arctype->real_path}}/{{$cbrand->id}}.html"><img class="img-responsive center-block" style="min-height: 92px;" src="{{$cbrand->litpic}}" alt="{{$cbrand->brandname}}" /><strong >{{$cbrand->brandname}}</strong></a></li>
+            @endforeach
+        </ul>
+    </div>
+</div>
+
+<div class="zonghe">
+    <ul class="zonghe-nav clearfix">
+        <li><a class="zonghe-nav-moren">饮品行业资讯</a>
+            <div class="zonghe-con" style="display:block;">
+                @foreach($yphynews as $yphynew)
+                <div class="zonghe-con-list clearfix">
+                    <a href="/{{$yphynew->arctype->real_path}}/{{$yphynew->id}}.html"><img src="{{$yphynew->litpic}}"/></a>
+                    <div class="zonghe-right">
+                        <a href="/{{$yphynew->arctype->real_path}}/{{$yphynew->id}}.html">{{$yphynew->title}}</a>
+                        <span class="zonghe-con-font">
+                      {{str_limit($yphynew->description,96,'...')}}
+                    </span>
+                    </div>
+                </div>
                 @endforeach
-            </ul>
-        </div>
-    </div>
-    <div class="clearfix">
-        <div class="related-tit tabs-tit">
-            <span class="jpxm"></span>
-            <div class="btn-one-more fr" onclick="tabsNext(this,0)">
-                <span class="ic-one-more"></span>换一批
             </div>
-        </div>
-        <div class="tabs-ctn" data-id="m_n_a03" data-type="cmsadpos">
-            <ul class="content cy-item ">
-                @foreach($cbrands as $cbrand)
-                <li>
-                    <a href="/xm/{{$cbrand->id}}.shtml" data-id="{{$cbrand->id}}" data-type="cmsad">
-                        <img src="{{$cbrand->litpic}}">
-                        <p class="online-title">{{$cbrand->brandname}}</p>
-                        <p class="online-name">{{$cbrand->brandgroup}}</p>
-                        <p class="online-money"><span class="rmb">￥</span>{{$cbrand->brandpay}}</p>
-                        <span class="timespan">{{date('y-m-d',strtotime($cbrand->created_at))}}</span>
-                    </a>
-                </li>
-                @endforeach
-            </ul>
-            <ul class="content cy-item ">
-                @foreach($cbrand2s as $cbrand2)
-                    <li>
-                        <a href="/xm/{{$cbrand2->id}}.shtml" data-id="{{$cbrand2->id}}" data-type="cmsad">
-                            <img src="{{$cbrand2->litpic}}">
-                            <p class="online-title">{{$cbrand2->brandname}}</p>
-                            <p class="online-name">{{$cbrand2->brandgroup}}</p>
-                            <p class="online-money"><span class="rmb">￥</span>{{$cbrand2->brandpay}}</p>
-                            <span class="timespan">{{date('y-m-d',strtotime($cbrand2->created_at))}}</span>
-                        </a>
-                    </li>
+        </li>
+
+        <li><a>开店问答</a>
+            <div class="zonghe-con">
+                @foreach($ypasks as $ypask)
+                    <div class="zonghe-con-list clearfix">
+                        <a href="/{{$ypask->arctype->real_path}}/{{$ypask->id}}.html"><img src="{{$ypask->litpic}}"/></a>
+                        <div class="zonghe-right">
+                            <a href="/{{$ypask->arctype->real_path}}/{{$ypask->id}}.html">{{$ypask->title}}</a>
+                            <span class="zonghe-con-font">
+                            {{str_limit($ypask->description,96,'...')}}
+                    </span>
+                        </div>
+                    </div>
                 @endforeach
 
-            </ul>
-            <ul class="content cy-item ">
-                @foreach($cbrand3s as $cbrand3)
-                    <li>
-                        <a href="/xm/{{$cbrand3->id}}.shtml" data-id="{{$cbrand3->id}}" data-type="cmsad">
-                            <img src="{{$cbrand3->litpic}}">
-                            <p class="online-title">{{$cbrand3->brandname}}</p>
-                            <p class="online-name">{{$cbrand3->brandgroup}}</p>
-                            <p class="online-money"><span class="rmb">￥</span>{{$cbrand3->brandpay}}</p>
-                            <span class="timespan">{{date('y-m-d',strtotime($cbrand3->created_at))}}</span>
-                        </a>
-                    </li>
+            </div>
+        </li>
+        <li><a>饮品店利润</a>
+            <div class="zonghe-con">
+                @foreach($lirunnews as $lirunnew)
+                    <div class="zonghe-con-list clearfix">
+                        <a href="/{{$lirunnew->arctype->real_path}}/{{$lirunnew->id}}.html"><img src="{{$lirunnew->litpic}}"/></a>
+                        <div class="zonghe-right">
+                            <a href="/{{$lirunnew->arctype->real_path}}/{{$lirunnew->id}}.html">{{$lirunnew->title}}</a>
+                            <span class="zonghe-con-font">
+                            {{str_limit($lirunnew->description,96,'...')}}
+                    </span>
+                        </div>
+                    </div>
                 @endforeach
+            </div>
+        </li>
+    </ul>
 
-            </ul>
-            <ul class="content cy-item ">
-                @foreach($cbrand4s as $cbrand4)
-                    <li>
-                        <a href="/xm/{{$cbrand4->id}}.shtml" data-id="{{$cbrand4->id}}" data-type="cmsad">
-                            <img src="{{$cbrand4->litpic}}">
-                            <p class="online-title">{{$cbrand4->brandname}}</p>
-                            <p class="online-name">{{$cbrand4->brandgroup}}</p>
-                            <p class="online-money"><span class="rmb">￥</span>{{$cbrand4->brandpay}}</p>
-                            <span class="timespan">{{date('y-m-d',strtotime($cbrand4->created_at))}}</span>
-                        </a>
-                    </li>
-                @endforeach
-            </ul>
-        </div>
-    </div>
-    <div class="clearfix">
-        <div class="related-tit mgt20 tabs-tit">
-            <span class="xptj"></span>
-            <div class="btn-one-more fr" onclick="tabsNext(this,1)">
-                <span class="ic-one-more fl"></span>换一批
-            </div>
-        </div>
-        <div class="tabs-ctn" data-id="m_n_a04" data-type="cmsadpos">
-            <ul class="content cy-item ">
-                @foreach($latestbrands as $latestbrand)
-                    <li>
-                        <a href="/xm/{{$latestbrand->id}}.shtml" data-id="{{$latestbrand->id}}" data-type="cmsad">
-                            <img src="{{$latestbrand->litpic}}">
-                            <p class="online-title">{{$latestbrand->brandname}}</p>
-                            <p class="online-name">{{$latestbrand->brandgroup}}</p>
-                            <p class="online-money"><span class="rmb">￥</span>{{$latestbrand->brandpay}}</p>
-                            <span class="timespan">{{date('y-m-d',strtotime($latestbrand->created_at))}}</span>
-                        </a>
-                    </li>
-                @endforeach
-            </ul>
-            <ul class="content cy-item ">
-                @foreach($latestbrand2s as $latestbrand2)
-                    <li>
-                        <a href="/xm/{{$latestbrand2->id}}.shtml" data-id="{{$latestbrand2->id}}" data-type="cmsad">
-                            <img src="{{$latestbrand2->litpic}}">
-                            <p class="online-title">{{$latestbrand2->brandname}}</p>
-                            <p class="online-name">{{$latestbrand2->brandgroup}}</p>
-                            <p class="online-money"><span class="rmb">￥</span>{{$latestbrand2->brandpay}}</p>
-                            <span class="timespan">{{date('y-m-d',strtotime($latestbrand2->created_at))}}</span>
-                        </a>
-                    </li>
-                @endforeach
-            </ul>
-            <ul class="content cy-item ">
-                @foreach($latestbrand3s as $latestbrand3)
-                    <li>
-                        <a href="/xm/{{$latestbrand3->id}}.shtml" data-id="{{$latestbrand3->id}}" data-type="cmsad">
-                            <img src="{{$latestbrand3->litpic}}">
-                            <p class="online-title">{{$latestbrand3->brandname}}</p>
-                            <p class="online-name">{{$latestbrand3->brandgroup}}</p>
-                            <p class="online-money"><span class="rmb">￥</span>{{$latestbrand3->brandpay}}</p>
-                            <span class="timespan">{{date('y-m-d',strtotime($latestbrand3->created_at))}}</span>
-                        </a>
-                    </li>
-                @endforeach
-            </ul>
-            <ul class="content cy-item ">
-                @foreach($latestbrand4s as $latestbrand4)
-                    <li>
-                        <a href="/xm/{{$latestbrand4->id}}.shtml" data-id="{{$latestbrand4->id}}" data-type="cmsad">
-                            <img src="{{$latestbrand4->litpic}}">
-                            <p class="online-title">{{$latestbrand4->brandname}}</p>
-                            <p class="online-name">{{$latestbrand4->brandgroup}}</p>
-                            <p class="online-money"><span class="rmb">￥</span>{{$latestbrand4->brandpay}}</p>
-                            <span class="timespan">{{date('y-m-d',strtotime($latestbrand4->created_at))}}</span>
-                        </a>
-                    </li>
-                @endforeach
-            </ul>
-        </div>
-    </div>
-    <div class="news clearfix">
-        <div class="favor-header-bar clearfix">
-            <ul class="tabs">
-                <li class="on">品牌新闻<i></i></li>
-                <li>加盟指南<i></i></li>
-                <li>投资分析<i></i></li>
-                <li>经营管理<i></i></li>
-            </ul>
-        </div>
-        <div>
-            <div class="news-content">
-                @foreach($latestbrandnews as $latestbrandnew)
-                <dl class="newslist1">
-                    <dt class="dd-two">
-                        <p class="newslist-tit p-two"><a href="/news/{{$latestbrandnew->id}}.shtml">{{$latestbrandnew->title}}</a></p>
-                        <p class="newslist-text p1-two">{{$latestbrandnew->descriprion}}</p>
-                    </dt>
-                    <dd class="dt-two dt-two1 clearfix">
-                        @php
-                            $pics=array_filter(explode(',',\App\AdminModel\Brandarticle::where('id',$latestbrandnew->brandid)->value('imagepics')));
-                        @endphp
-                       @foreach($pics as $index=>$pic)
-                           @if($index<3)
-                            <img src="{{$pic}}" class="fl @if($index <2)mgr150 @endif">
-                            @endif
-                        @endforeach
-                    </dd>
-                    <dd class="publish ">
-                        <span class="fl publish-text">来源：中国教育招商网</span>
-                        <span class=" publish-text fl">{{$latestbrandnew->created_at}}</span>
-                    </dd>
-                </dl>
-                @endforeach
-            </div>
-            <div class="news-content">
-                @foreach($jmzhinannews as $jmzhinannew)
-                    <dl class="newslist1">
-                        <dt class="dd-two">
-                            <p class="newslist-tit p-two"><a href="/news/{{$jmzhinannew->id}}.shtml">{{$jmzhinannew->title}}</a></p>
-                            <p class="newslist-text p1-two">{{$jmzhinannew->descriprion}}</p>
-                        </dt>
-                        <dd class="dt-two dt-two1 clearfix">
-                            @php
-                                $pics=array_filter(explode(',',\App\AdminModel\Brandarticle::where('id',$jmzhinannew->brandid)->value('imagepics')));
-                            @endphp
-                            @foreach($pics as $index=>$pic)
-                                @if($index<3)
-                                    <img src="{{$pic}}" class="fl @if($index <2)mgr150 @endif">
-                                @endif
-                            @endforeach
-                        </dd>
-                        <dd class="publish ">
-                            <span class="fl publish-text">来源：中国教育招商网</span>
-                            <span class=" publish-text fl">{{$jmzhinannew->created_at}}</span>
-                        </dd>
-                    </dl>
-                @endforeach
-            </div>
-            <div class="news-content">
-                @foreach($touzinews as $touzinew)
-                    <dl class="newslist1">
-                        <dt class="dd-two">
-                            <p class="newslist-tit p-two"><a href="/news/{{$touzinew->id}}.shtml">{{$touzinew->title}}</a></p>
-                            <p class="newslist-text p1-two">{{$touzinew->descriprion}}</p>
-                        </dt>
-                        <dd class="dt-two dt-two1 clearfix">
-                            @php
-                                $pics=array_filter(explode(',',\App\AdminModel\Brandarticle::where('id',$touzinew->brandid)->value('imagepics')));
-                            @endphp
-                            @foreach($pics as $index=>$pic)
-                                @if($index<3)
-                                    <img src="{{$pic}}" class="fl @if($index <2)mgr150 @endif">
-                                @endif
-                            @endforeach
-                        </dd>
-                        <dd class="publish ">
-                            <span class="fl publish-text">来源：中国教育招商网</span>
-                            <span class=" publish-text fl">{{$touzinew->created_at}}</span>
-                        </dd>
-                    </dl>
-                @endforeach
-            </div>
-            <div class="news-content">
-                @foreach($jingyingnews as $jingyingnew)
-                    <dl class="newslist1">
-                        <dt class="dd-two">
-                            <p class="newslist-tit p-two"><a href="/news/{{$jingyingnew->id}}.shtml">{{$jingyingnew->title}}</a></p>
-                            <p class="newslist-text p1-two">{{$jingyingnew->descriprion}}</p>
-                        </dt>
-                        <dd class="dt-two dt-two1 clearfix">
-                            @php
-                                $pics=array_filter(explode(',',\App\AdminModel\Brandarticle::where('id',$jingyingnew->brandid)->value('imagepics')));
-                            @endphp
-                            @foreach($pics as $index=>$pic)
-                                @if($index<3)
-                                    <img src="{{$pic}}" class="fl @if($index <2)mgr150 @endif">
-                                @endif
-                            @endforeach
-                        </dd>
-                        <dd class="publish ">
-                            <span class="fl publish-text">来源：中国教育招商网</span>
-                            <span class=" publish-text fl">{{$jingyingnew->created_at}}</span>
-                        </dd>
-                    </dl>
-                @endforeach
-            </div>
-        </div>
-        <div class="lxmore">
-            <a href="/news/">查看更多<i></i></a>
-        </div>
-    </div>
-    <div class="clearfix">
-        <div class="related-tit bg-fff mgt20 tabs-tit">
-            <b>隐私保护</b>
-            <div class="btn-one-more fr">
-            </div>
-        </div>
-        <div class="tabs-ctn">
-            <ul class="content1 cy-item ">
-                <li><a href="javascript:;">
-                        <p class="online-name1">1. 我方平台为信息发布平台，您的留言将在我方平台发布或提供给相应商家</p>
-                        <p class="online-name1">2. 如不需要发布信息，请勿在本平台留言</p>
-                        <p class="online-name1">3.
-                            公司对与任何包含、经由、或链接、下载或从任何与本网站有关服务所获得的资讯、内容或广告，不声明或保证其内容的正确性、真实性或可靠性；并且，对于您透过本网广告、资讯或要约而展示、购买或取得的任何产品、资讯或资料，本网站亦不负品质保证的责任。您与此接受并承认信赖任何信息所产生之风险应自行承担，本网对任何使用或提供本网站信息的商业活动及其风险不承担任何责任。</p>
-                        <p class="online-name1">4. 本网站若因线路及非本公司控制范围外的硬件故障或其它不可抗力，以及黑客政击、计算机病毒侵入或发而造成的个人资料泄露、丢失、被盗用或被篡改等，本网站亦不负任何责任。</p>
-                        <p class="online-name1">5.
-                            当本网站以链接形式推荐其他网站内容时，本网站并不对这些网站或资源的真实性、可用性、合法性负责，且不保证从这些网站获取的任何内容、产品、服务或其他材料的真实性、合法性，对于任何因使用或信赖从此类网站上获取的内容、产品、资源、服务或其他材料而造成的任何直接或间接的损失均由您自行承担，本网站均不承担任何责任。</p>
-                    </a></li>
-            </ul>
-        </div>
-    </div>
-@stop
-@section('footlibs')
-    <script>
-        $(function () {
-            iliHeight = $("#moocBox").height();
-            setTimeout(startScroll, delay);
-        });
-        //滚动
-        var iliHeight;
-        var area = document.getElementById('moocBox');
-        var speed = 2;
-        var time;
-        var delay = 3000;
-        area.scrollTop = 0;
-        area.innerHTML += area.innerHTML;
-        function startScroll() {
-            time = setInterval("scrollUp()", speed);
-            area.scrollTop++;
-        }
-        function scrollUp() {
-            if (area.scrollTop % (iliHeight) == 0) {
-                clearInterval(time);
-                setTimeout(startScroll, delay);
-            } else {
-                area.scrollTop++;
-                if (area.scrollTop >= area.scrollHeight / 2) {
-                    area.scrollTop = 0;
-                }
-            }
-        }
-    </script>
+</div>
+
+<!--产品展示 start-->
+<div class="cp-show">
+    <div class="cp-show-header"><span>新产品推荐</span></div>
+    <ul class="cp-show-list clearfix">
+        @foreach($latestbrands as $latestbrand)
+        <li>
+            <a href="/{{$latestbrand->arctype->real_path}}/{{$latestbrand->id}}.html"><img src="{{$latestbrand->litpic}}"/></a>
+            <span class="cp-font">
+            <a href="/{{$latestbrand->arctype->real_path}}/{{$latestbrand->id}}.html">{{$latestbrand->brandname}}</a>
+          </span>
+        </li>
+        @endforeach
+    </ul>
+</div>
+<!--产品展示 end-->
+<hr/>
+
 @stop

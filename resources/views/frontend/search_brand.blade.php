@@ -1,7 +1,7 @@
 @extends('frontend.frontend')
-@section('title')品牌搜索页面-中国教育招商网@stop
-@section('keywords')品牌搜索页面 @stop
-@section('description')品牌搜索页面@stop
+@section('title')品牌搜索页-中国教育招商网@stop
+@section('keywords')品牌搜索页@stop
+@section('description')品牌搜索页@stop
 @section('headlibs')
     <meta name="Copyright" content="中国教育招商网-{{env('APP_URL')}}"/>
     <meta name="author" content="中国教育招商网" />
@@ -14,93 +14,81 @@
     <link href="/frontend/css/list.css" rel="stylesheet" type="text/css" />
 @stop
 @section('main_content')
-
-    <div style="background-color: #f5f5f5;">
-        <div class="w1200">
-            <div class="paixu-nav bg-ff box-shadow mt20">
-                <h1>搜索项目列表项目列表</h1>
-                <div class="px-btn o">
-                    <span class="cur"><a href="javascript:void(0);" data-f="time" data-o="d" rel="nofollow">默认排序</a></span><span><a href="javascript:void(0);" class="iconfont" data-f="investment" data-o="a" rel="nofollow">投资金额</a></span><span><a href="javascript:void(0);" class="iconfont" data-f="shop" data-o="d" rel="nofollow">门店数</a></span>
+    <div class="box clearfix" style="position:relative;">
+        <div class="w680"  style="margin-top:0;">
+            <div class="nav">
+                <div class="nav1">
+                    <div class="tit">品牌搜索</div>
                 </div>
             </div>
-            <div class="w870 fl">
-                <ul class="xm-list-H224 clearfix" style="width: 870px; float:left; cursor: pointer">
+            <div class="pp_list">
+                <ul class="clearfix">
                     @foreach($pagelists as $pagelist)
-                        <li class="">
-                            <div class="btn-duibi btn-addbyb" data-id="{{$pagelist->id}}">
-                                <i class="iconfont icon-Contrast"></i>对比
+                        <li>
+                        <span>
+                            <a href="/{{$pagelist->arctype->real_path}}/{{$pagelist->id}}.html">
+                                <img src="{{$pagelist->litpic}}" alt="{{$pagelist->brandname}}"  width="120" height="90"/>
+                            </a>
+                        </span>
+                            <strong>
+                                <a href="/{{$pagelist->arctype->real_path}}/{{$pagelist->id}}.html">{{$pagelist->brandname}}</a>
+                            </strong>
+                            <em>加盟人气：{{$pagelist->brandnum}}<b></b>
+                            </em>
+                            <div>
+                                <a href="/{{$pagelist->arctype->real_path}}/{{$pagelist->id}}.html" class="pp_b1">查看详情</a>
+                                <a class="pp_b2" href="#liuyan" >立即咨询</a>
                             </div>
-                            <a target="_blank" href="/xm/{{$pagelist->id}}.shtml" class="img-block magnify"><img src="{{$pagelist->litpic}}" alt="{{$pagelist->brandname}}"></a>
-                            <div class="f20">
-                                <a target="_blank" href="/xm/{{$pagelist->id}}.shtml">{{$pagelist->brandname}}</a>
-                            </div>
-                            <div class="info">
-                                <span title="{{$pagelist->brandpay}}">投资金额：<b class="s-oe">{{$pagelist->brandpay}}</b></span><span title="{{\App\AdminModel\Acreagement::where('id',$pagelist->acreage)->value('type')}}㎡">所需面积：<b class="s-oe">{{\App\AdminModel\Acreagement::where('id',$pagelist->acreage)->value('type')}}㎡</b></span>
-                            </div>
-                            <p> 门店数量：<span class="s-c26">{{$pagelist->brandnum}}</span></p>
-                            <p>加盟区域：<span class="s-c26">{{$pagelist->brandarea}}</span></p>
-                            <p>主要产品：<span class="s-c26">{{$pagelist->brandmap}}</span></p>
-                            <p style="height:48px">项目描述：<span>{{$pagelist->description}}</span></p>
                         </li>
                     @endforeach
                 </ul>
-                <div class="clear"></div>
             </div>
+            <div class="page">
+                {!! str_replace('page=','page/',str_replace('?','/',preg_replace('/<a href=[\'\"]?([^\'\" ]+).*?>/','<a href="${1}/">',$pagelists->links()))) !!}
+            </div>
+            <script>
 
-            <div class="w320 fr">
-                <dl class="rank-bar mr30">
-                    <dt><h3>品牌排行榜</h3><span class="fr">关注量</span></dt>
-                    @foreach($topbrands as $index=>$topbrand)
-                        <dd @if($loop->first)  class="show" @endif>
-                            <div class="item">
-                                <i class="icon-all @if($index<3) i-a3{{$index}}@else i-a33 @endif">{{$index+1}}</i>
-                                <div class="default">
-                                    <span class="fr">{{$topbrand->brandnum}}</span><a target="_blank" href="/xm/{{$topbrand->id}}.shtml" class="f16">{{$topbrand->brandname}}</a>
-                                </div>
-                                <div class="tips">
-                                    <a target="_blank" href="/xm/{{$topbrand->id}}.shtml"><img src="{{$topbrand->litpic}}" alt="{{$topbrand->brandname}}" class="fr"></a>
-                                    <p> {{$topbrand->description}}</p>
-                                </div>
-                            </div>
-                        </dd>
+                $(function () {
+                    $(".pp_list ul li").hover(function () {
+                        $(this).addClass("jg")
+                    }, function () {
+                        $(this).removeClass("jg")
+                    })
+                });
+
+            </script>
+        </div>
+        <div class="w306">
+            <div class="bkb" style="margin-top:0;">
+                <!-- 幻灯片 Start -->
+                <a href="#" target="_blank"><img src="/frontend/images/loading.gif" alt="一扫光"  width="302" height="292"/></a>
+            </div>
+            <div class="bkb ullb2">
+                <div class="title">品牌关注排行榜</div>
+                <ul class="clearfix">
+                    @foreach($topbrands as $topbrand)
+                        <li><span><a href="/{{$topbrand->arctype->real_path}}/{{$topbrand->id}}.html"><img src="{{$topbrand->litpic}}" width="126" height="96"/></a></span> <strong><a href="/{{$topbrand->arctype->real_path}}/{{$topbrand->id}}.html">{{$topbrand->brandname}}</a></strong></li>
                     @endforeach
-                </dl>
+                </ul>
+            </div>
+            <div class="bkb ullb1">
+                <div class="title">饮品加盟资讯</div>
+                <ul>
+                    @foreach($latesenews as $latesenew)
+                        <li><a href="/{{$latesenew->real_path}}/{{$latesenew->id}}.html">{{$latesenew->title}}</a></li>
+                    @endforeach
 
-                <div class="bg-ff p20">
-                    <div class="lh24">
-                        <a target="_blank" href="//xm//" class="fr s-c999">更多</a>
-                        <h3 class="f22">热门加盟项目</h3>
-                    </div>
-                    <ul class="join-project mt30">
-                        @foreach($flashlingshibrands as $flashlingshibrand)
-                            <li>
-                                <a target="_blank" href="/xm/{{$flashlingshibrand->id}}.shtml" class="img-block magnify"><img src="{{$flashlingshibrand->litpic}}" alt="{{$flashlingshibrand->brandname}}"></a>
-                                <p class="f16"><a target="_blank" href="/xm/{{$flashlingshibrand->id}}.shtml">{{$flashlingshibrand->brandname}}</a></p>
-                                <p class="f14">投资金额：<span class="s-oe">{{$flashlingshibrand->brandpay}}</span></p>
-                                <p class="f14">加盟门店数：<span class="s-oe">{{$flashlingshibrand->brandnum}}</span></p>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-                <div class="bg-ff p20 mt20">
-                    <div class="lh24">
-                        <a target="_blank" href="/news/" class="fr s-c999">更多</a>
-                        <h3 class="f22">加盟资讯</h3>
-                    </div>
-                    <ul class="tw-list tw-list-h84 mt15">
-                        @foreach($cnewslists as $cnewslist)
-                            <li><a target="_blank" href="/news/{{$cnewslist->id}}.shtml" class="img-block magnify"><img  @if($cnewslist->litpic) src="{{$cnewslist->litpic}}" alt="{{$cnewslist->tite}}" @else src="/public/images/noimg.jpg" @endif></a>
-                                <p class="f16">
-                                    <a target="_blank" href="/news/{{$cnewslist->id}}.shtml">{{$cnewslist->title}}</a>
-                                </p>
-                                <p class="f14 s-8c">{{$cnewslist->description}}</p>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
+                </ul>
+            </div>
+            <div class="r_xd"></div>
+            <div class="bkb ullb3 rfd">
+                <div class="title">品牌推荐</div>
+                <ul class="clearfix">
+                    @foreach($lastestbrands as $lastestbrand)
+                        <li><span><a href="/{{$lastestbrand->real_path}}/{{$lastestbrand->id}}.html"><img src="{{$lastestbrand->litpic}}" /></a></span> <strong><a href="/{{$lastestbrand->arctype->real_path}}/{{$lastestbrand->id}}.html">{{$lastestbrand->brandname}}</a></strong></li>
+                    @endforeach
+                </ul>
             </div>
         </div>
-        <div style="clear: both;"></div>
     </div>
-
 @stop

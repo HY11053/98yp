@@ -1,5 +1,5 @@
 @extends('frontend.frontend')
-@section('title'){{$thisarticleinfos->title}}-{{$indexname}}@stop
+@section('title'){{$thisarticleinfos->title}}-中国教育招商网@stop
 @section('description'){{$thisarticleinfos->description}}@stop
 @section('headlibs')
     <meta name="Copyright" content="{{config('app.name')}}-{{config('app.url')}}"/>
@@ -59,7 +59,7 @@
                 <div class="content_bt">
                     <h1>{{$thisarticleinfos->title}}</h1>
                     <div class="content_ly">
-                        时间：{{$thisarticleinfos->created_at}}  |  来源：<a href="/">零食加盟品牌网</a>
+                        时间：{{$thisarticleinfos->created_at}}  |  来源：<a href="/">饮品加盟品牌网</a>
                     </div>
                 </div>
                 <div class="clearfix content2">
@@ -150,101 +150,39 @@
             <div class="bkb ullb2">
                 <div class="title">大家都在阅读内容</div>
                 <ul class="clearfix">
-
+                    @foreach($cnewslists as $cnewslist)
                     <li>
-                        <span><a href="/ppxw/1882.html"><img src="/uploads/allimg/170623/1-1F62313324K37.jpg" width="126" height="96"/></a></span>
-                        <strong><a href="/ppxw/1882.html">百草味零食加盟是你创业</a></strong></li>
+                        <span><a href="/{{$cnewslist->arctype->real_path}}/{{$cnewslist->id}}.html"><img src="{{$cnewslist->litpic}}" width="126" height="96"/></a></span>
+                        <strong><a href="/{{$cnewslist->arctype->real_path}}/{{$cnewslist->id}}.html">{{$cnewslist->title}}</a></strong></li>
                     <li>
-
+                    @endforeach
                 </ul>
             </div>
 
             <div class="bkb ullb1">
                 <div class="title">加盟资讯</div>
                 <ul>
+                    @foreach($latestnewslists as $latestnewslist)
                     <li>
-                        <a href="/feiyong/10493.html" target="_blank" title="方燕烤猪蹄加盟费多少钱？1-3万轻松创业">方燕烤猪蹄加盟费多少钱？1-3万轻</a></li>
+                        <a href="/{{$latestnewslist->arctype->real_path}}/{{$latestnewslist->id}}.html" target="_blank" title="{{$latestnewslist->title}}">{{$latestnewslist->title}}</a></li>
                     </li>
-                    <li>
-                        <a href="/lingshidianjm/10497.html" target="_blank" title="琼芳休闲食品加盟店怎么选址？选址有技巧 盈利不用愁">琼芳休闲食品加盟店怎么选址？选</a></li>
-                    </li>
-                    <li>
-                        <a href="/feiyong/10487.html" target="_blank" title="Q客家进口食品加盟费需要多少钱？投资少 几万元轻松起步">Q客家进口食品加盟费需要多少钱</a></li>
-                    </li>
-                    <li>
-                        <a href="/lingshidianjm/10495.html" target="_blank" title="好食多进口食品加盟怎么样？成本低 资金压力小">好食多进口食品加盟怎么样？成本</a></li>
-                    </li>
-                    <li>
-                        <a href="/lingshidianjm/10475.html" target="_blank" title="五分文南北干货加盟怎么样？种类多 口碑好 市场需求大">五分文南北干货加盟怎么样？种类</a></li>
-                    </li>
-                    <li>
-                        <a href="/lingshidianjm/10486.html" target="_blank" title="咪拉贝儿甜甜圈加盟怎么样？市场广阔 销量高">咪拉贝儿甜甜圈加盟怎么样？市场</a></li>
-                    </li>
-                    <li>
-                        <a href="/lingshidianjm/10496.html" target="_blank" title="雅米休闲食品加盟赚钱吗？经营优势多 收益有保障">雅米休闲食品加盟赚钱吗？经营优</a></li>
-                    </li>
-                    <li>
-                        <a href="/lirun/10474.html" target="_blank" title="零食世家加盟利润有多少？成本投入少 利润收益高">零食世家加盟利润有多少？成本投</a></li>
-                    </li>
-                    <li>
-                        <a href="/jmzn/10478.html" target="_blank" title="老婆万岁加盟赚钱吗？口碑好 信誉佳 盈利有保障">老婆万岁加盟赚钱吗？口碑好 信</a></li>
-                    </li>
-                    <li>
-                        <a href="/feiyong/10485.html" target="_blank" title="苁珍食品加盟费需要多少钱？几万元轻松创业">苁珍食品加盟费需要多少钱？几万</a></li>
-                    </li>
-
-
-
+                 @endforeach
                 </ul>
             </div>
 
 
             <div class="r_xd"></div>
             <div class="bkb ullb3 rfd">
-                <div class="title">十大品牌推荐</div>
+                <div class="title">最新品牌推荐</div>
                 <ul class="clearfix">
+                    @foreach($flashlingshibrands as $index=>$flashlingshibrand)
                     <li class="red">
-                        <p><i>TOP1</i><a href="/fenlei/140.html">来伊份</a></p>
+                        <p><i>TOP{{$index+1}}</i><a href="/{{$flashlingshibrand->arctype->real_path}}/{{$flashlingshibrand->id}}.html">{{$flashlingshibrand->brandname}}</a></p>
                         <dl>
-                            <dt><a href="/fenlei/140.html" target="_blank"><img src="/uploads/151010/2-1510101A44c03.jpg" alt="来伊份"/></a></dt>
-
+                            <dt><a href="/{{$flashlingshibrand->arctype->real_path}}/{{$flashlingshibrand->id}}.html" target="_blank"><img src="{{$flashlingshibrand->litpic}}" alt="{{$flashlingshibrand->brandname}}"/></a></dt>
                         </dl>
                     </li>
-                    <li class="red">
-                        <p><i>TOP2</i><a href="/fenlei/296.html">伊味儿</a></p>
-                        <dl>
-                            <dt><a href="/fenlei/296.html" target="_blank"><img src="/uploads/150919/4-150919100549451.png" alt="伊味儿"/></a></dt>
-
-                        </dl>
-                    </li>
-                    <li class="red">
-                        <p><i>TOP3</i><a href="/fenlei/197.html">良品铺子</a></p>
-                        <dl>
-                            <dt><a href="/fenlei/197.html" target="_blank"><img src="/uploads/150923/5-15092316391RG.png" alt="良品铺子"/></a></dt>
-
-                        </dl>
-                    </li>
-                    <li class="red">
-                        <p><i>TOP4</i><a href="/fenlei/469.html">贪吃小站</a></p>
-                        <dl>
-                            <dt><a href="/fenlei/469.html" target="_blank"><img src="/uploads/150921/4-150921161221a9.png" alt="贪吃小站"/></a></dt>
-
-                        </dl>
-                    </li>
-                    <li class="red">
-                        <p><i>TOP5</i><a href="/fenlei/1976.html">戴永红</a></p>
-                        <dl>
-                            <dt><a href="/fenlei/1976.html" target="_blank"><img src="/uploads/allimg/151216/1-1512161626050-L.jpg" alt="戴永红"/></a></dt>
-
-                        </dl>
-                    </li>
-                    <li class="red">
-                        <p><i>TOP6</i><a href="/fenlei/177.html">百草味</a></p>
-                        <dl>
-                            <dt><a href="/fenlei/177.html" target="_blank"><img src="/uploads/150923/2-1509231TG6119.jpg" alt="百草味"></a></dt>
-
-                        </dl>
-                    </li>
+                    @endforeach
                 </ul>
             </div>
         </div>

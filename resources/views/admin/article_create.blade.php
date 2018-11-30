@@ -92,13 +92,6 @@
                                 {{Form::select('typeid', $allnavinfos, null,array('class'=>'form-control select2'))}}
                             </div>
                         </div>
-                        <div class="form-group col-md-12 ">
-                            {{Form::label('xiongzhang', '熊掌号推送', array('class' => 'control-label col-md-2 col-sm-3 col-xs-12'))}}
-                            <div class="radio col-md-4 col-sm-9 col-xs-12">
-                                {{Form::radio('xiongzhang', '1', false,array('class'=>'flat-red'))}} 熊掌号实时推送
-                                {{Form::radio('xiongzhang', '0', true,array('class'=>'flat-red'))}}熊掌号历史推送
-                            </div>
-                        </div>
                         <div class="form-group col-md-12">
                             {{Form::label('description', '文档描述', array('class' => 'control-label col-md-2 col-sm-3 col-xs-12'))}}
                             <div class="col-md-4 col-sm-9 col-xs-12">

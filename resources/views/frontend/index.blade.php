@@ -31,7 +31,7 @@
             <!-- 幻灯片 End -->
             <!--推荐品牌-->
             <div class="in_tjpp">
-                <div class="title"><span class="more"><a href="/cpzh/" target="_blank">更多></a></span>新产品</div>
+                <div class="title"><span class="more"><a href="/pinpai/" target="_blank">更多></a></span>新产品</div>
                 <div class="in_tjppa">
                     <ul>
                         @foreach($abrands as $abrand)

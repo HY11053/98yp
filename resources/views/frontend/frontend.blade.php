@@ -19,7 +19,7 @@
 <body>
 <div class="topbar">
     <div class="box">
-        <span>您好， 欢迎来到零食加盟品牌网！</span>
+        <span>您好， 欢迎来到98饮品网！</span>
         <i><a href="#">设为首页</a>  |  <a style="cursor:pointer;" onclick="javascript:AddFavorite(window.location, document.title)" rel="nofollow">加入收藏夹</a></i>
     </div>
 </div>
@@ -27,11 +27,11 @@
     <div class="box">
         <div class="logo"><a href="/"><img src="/frontend/images/logo.jpg" alt="品牌" /></a></div>
         <div class="h_search">
-            <form name='formsearch' action="/plus/search.php">
-                <input type="text" name="q" class="h_text"  value="一扫光" onclick="if(this.value=='一扫光'){this.value='';this.className='h_text1'}" onblur="if(this.value==''){this.value='一扫光';this.className='h_text'}"/>
+            <form name='formsearch' action="/sprodlist/all/" method="post">
+                {{csrf_field()}}
+                <input type="text" name="q" class="h_text"  value="饮品品牌" onclick="if(this.value=='饮品品牌'){this.value='';this.className='h_text1'}" onblur="if(this.value==''){this.value='饮品品牌';this.className='h_text'}"/>
                 <input type="submit" value="搜 索"  class="h_search_button"/>
             </form>
-            <div class="h_search_hot">热门推荐：<a href="/fenlei/197.html">良品铺子</a><a href="/fenlei/1392.html">三只松鼠</a><a href="/fenlei/461.html">老婆大人</a><a href="/fenlei/1973.html">好想来</a><a href="/fenlei/1306.html">一扫光</a><a href="/fenlei/1977.html">啵啵嘴</a></div>
         </div>
         <div class="h_weixin">WAP端二维码<br />加盟服务热线<br /><strong>4008-896-216</strong></div>
     </div>
@@ -55,8 +55,8 @@
             <li class="all_menu_li"><span><a href="/zhinan/">饮品店加盟指南</a></span></li>
             <li class="all_menu_li"><span><a href="/yinpinjm/">饮品店加盟</a></span></li>
             <li class="all_menu_li"><span><a href="/news/">饮品品牌新闻</a></span></li>
-            <li class="all_menu_li"><span><a href="/jmanli/">饮品牌案例</a></span></li>
-            <li class="all_menu_li"><span><a href="/paihangbang/">饮品品牌排行榜</a></span></li>
+            <li class="all_menu_li"><span><a href="/feiyong/">饮品加盟费用</a></span></li>
+            <li class="all_menu_li"><span><a href="/jmanli/">饮品加盟案例</a></span></li>
         </ul>
     </div>
 </div>

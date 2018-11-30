@@ -56,10 +56,10 @@
                 <ul>
                     @foreach($pagelists as $pagelist)
                     <li>
-                        <a href='/{{$pagelist->real_path}}/{{$pagelist->id}}.html' title="{{$pagelist->title}}">
+                        <a href='/{{$pagelist->arctype->real_path}}/{{$pagelist->id}}.html' title="{{$pagelist->title}}">
                             <img src='{{$pagelist->litpic}}' width="160" height="120"/>
                         </a>
-                        <strong><a href="/{{$pagelist->real_path}}/{{$pagelist->id}}.html" title="{{$pagelist->title}}">{{$pagelist->title}}</a></strong>
+                        <strong><a href="/{{$pagelist->arctype->real_path}}/{{$pagelist->id}}.html" title="{{$pagelist->title}}">{{$pagelist->title}}</a></strong>
                         <p>{{$pagelist->description}}...</p>
                         <em>{{$pagelist->created_at}}</em> <span><b>标签</b>  </span>
                     </li>

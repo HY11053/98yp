@@ -140,23 +140,21 @@
 .news_list ul li span a { color: #999; margin-right: 24px; }
 .news_list ul li span a:hover{ color:#ff8000}
 .news_list ul li img { width: 160px; height: 120px; float: left; margin-right:20px; }
-.page { height: 28px; text-align: center; padding: 32px 0; }
-.page ol {
-*zoom:1; display: inline; }
-.page ol li {
+.pagination { height: 28px; text-align: center; padding: 32px 0; }
+
+ul.pagination  li {padding: 0px; border: none;
 *zoom:1; display: inline-block; height: 28px; line-height: 28px; overflow: hidden; margin: 0 2px; }
-* html .page ol li { margin: 0 3px; }
-* html .page ol li { display: inline; }
-.page a {
+* html .pagination  li { margin: 0 3px; }
+* html .pagination  li { display: inline; }
+.pagination li a {*zoom:1; display: inline-block; }
+.pagination li a, .pagination li span, .pagination li span a {
 *zoom:1; display: inline-block; }
-.page a, .page span, .page span a {
-*zoom:1; display: inline-block; }
-.page a { padding: 0 10px; height: 26px; line-height: 26px; border: 1px solid #DFDFDF; color: #333; background-color: #fff; }
-.page ol li a:hover { background: #f6f6f6; border: 1px solid #ddd; color: #333; }
-.page ol li a { font-family: Arial, Helvetica, sans-serif; }
-.page ol li.thisclass { font-family: Arial, Helvetica, sans-serif; background-color: #FF8000; color: #fff; font-weight: bold; border: 1px solid #FF8000; padding: 0 10px; height: 26px; line-height: 26px; }
-.page ol li .pageinfo { color: #666; }
-.page ol li strong { color: #009aa5; font-weight: 100; padding: 0 2px; }
+.pagination a { padding: 0 10px; height: 26px; line-height: 26px; border: 1px solid #DFDFDF; color: #333; background-color: #fff; }
+.pagination  li a:hover { background: #f6f6f6; border: 1px solid #ddd; color: #333; }
+.pagination  li a { font-family: Arial, Helvetica, sans-serif; }
+.pagination  li.active { font-family: Arial, Helvetica, sans-serif; background-color: #FF8000; color: #fff; font-weight: bold; border: 1px solid #FF8000; padding: 0 10px; height: 26px; line-height: 26px; }
+.pagination  li .pageinfo { color: #666; }
+.pagination  li strong { color: #009aa5; font-weight: 100; padding: 0 2px; }
 /* flexslider */
 
 .w306 .slides_datu { position: relative; width: 302px; height: 227px; overflow: hidden; background: url(../images/loading.gif) 50% no-repeat; }
