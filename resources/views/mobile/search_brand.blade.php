@@ -1,5 +1,5 @@
 @extends('mobile.mobile')
-@section('title')品牌搜索页-中国教育招商网@stop
+@section('title')品牌搜索页-98饮品网@stop
 @section('keywords')品牌搜索页 @stop
 @section('description')品牌搜索页@stop
 @section('headlibs')

@@ -1,5 +1,5 @@
 @extends('mobile.mobile')
-@section('title'){{$thistypeinfo->title}}-中国教育招商网@stop
+@section('title'){{$thistypeinfo->title}}-98饮品网@stop
 @section('keywords'){{$thistypeinfo->keywords}} @stop
 @section('description'){{trim($thistypeinfo->description)}}@stop
 @section('headlibs')

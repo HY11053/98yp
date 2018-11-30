@@ -1,5 +1,5 @@
 @extends('frontend.frontend')
-@section('title'){{$thisarticleinfos->title}}-中国教育招商网@stop
+@section('title'){{$thisarticleinfos->title}}-98饮品网@stop
 @section('keywords'){{$thisarticleinfos->keywords}}@stop
 @section('description'){{trim($thisarticleinfos->description)}}@stop
 @section('headlibs')

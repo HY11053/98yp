@@ -1,10 +1,10 @@
 @extends('frontend.frontend')
-@section('title')品牌搜索页-中国教育招商网@stop
+@section('title')品牌搜索页-98饮品网@stop
 @section('keywords')品牌搜索页@stop
 @section('description')品牌搜索页@stop
 @section('headlibs')
-    <meta name="Copyright" content="中国教育招商网-{{env('APP_URL')}}"/>
-    <meta name="author" content="中国教育招商网" />
+    <meta name="Copyright" content="98饮品网-{{env('APP_URL')}}"/>
+    <meta name="author" content="98饮品网" />
     <meta http-equiv="mobile-agent" content="format=wml; url={{str_replace('http://www.','http://m.',config('app.url'))}}{{Request::getrequesturi()}}" />
     <meta http-equiv="mobile-agent" content="format=xhtml; url={{str_replace('http://www.','http://m.',config('app.url'))}}{{Request::getrequesturi()}}" />
     <meta http-equiv="mobile-agent" content="format=html5; url={{str_replace('http://www.','http://m.',config('app.url'))}}{{Request::getrequesturi()}}" />

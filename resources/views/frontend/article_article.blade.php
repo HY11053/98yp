@@ -1,5 +1,5 @@
 @extends('frontend.frontend')
-@section('title'){{$thisarticleinfos->title}}-中国教育招商网@stop
+@section('title'){{$thisarticleinfos->title}}-98饮品网@stop
 @section('description'){{$thisarticleinfos->description}}@stop
 @section('headlibs')
     <meta name="Copyright" content="{{config('app.name')}}-{{config('app.url')}}"/>

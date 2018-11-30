@@ -1,7 +1,7 @@
 @extends('mobile.mobile')
-@section('title'){{ config('app.webname', '中国教育招商网') }}@stop
-@section('keywords'){{ config('app.keywords', '中国教育招商网') }}@stop
-@section('description'){{ config('app.description', '中国教育招商网') }}@stop
+@section('title'){{ config('app.webname', '98饮品网') }}@stop
+@section('keywords'){{ config('app.keywords', '98饮品网') }}@stop
+@section('description'){{ config('app.description', '98饮品网') }}@stop
 @section('main_content')
 <p class="bg-primary">&nbsp;&nbsp;<em class="col-xs-10"><span class="glyphicon glyphicon-phone-alt ">&nbsp;</span><a href="tel:4008-896-216">拨打咨询电话-4008-896-216</a></em><a href="javascript:void(0);" onclick="openZoosUrl();return false;" class="col-xs-1"><span class="glyphicon glyphicon-comment "></span></a></p>
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
